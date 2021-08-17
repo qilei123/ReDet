@@ -14,7 +14,8 @@ from mmdet.core import results2json, coco_eval
 from mmdet.datasets import build_dataloader, get_dataset
 from mmdet.models import build_detector
 import time
-
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning)
 def get_time_str():
     return time.strftime('%Y%m%d_%H%M%S', time.localtime())
 
