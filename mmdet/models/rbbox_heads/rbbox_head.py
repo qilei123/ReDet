@@ -172,7 +172,7 @@ class BBoxHeadRbbox(nn.Module):
                 bbox_targets[pos_inds],
                 bbox_weights[pos_inds],
                 avg_factor=bbox_targets.size(0))
-        print(losses)
+        
         return losses
 
     def get_det_bboxes(self,
