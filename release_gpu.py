@@ -13,7 +13,7 @@ if __name__ == '__main__':
     #print(out_list)
     for oo in out_list:
         #print(oo)
-        if oo.find('python') != -1:
+        if oo.find('redet/bin/python') != -1:
             # split()函数默认可以按空格分割，并且把结果中的空字符串删除掉，留下有用信息
             proc_list = oo.split()
             pid = proc_list[4].strip()
