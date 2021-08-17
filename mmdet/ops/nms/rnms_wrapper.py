@@ -30,7 +30,7 @@ def py_cpu_nms_poly_fast(dets, iou_thr):
         y1 = np.min(obbs[:, 1::2], axis=1)
         x2 = np.max(obbs[:, 0::2], axis=1)
         y2 = np.max(obbs[:, 1::2], axis=1)
-        print(dets)
+        #print(dets)
         scores = dets[:, 8]
         areas = (x2 - x1 + 1) * (y2 - y1 + 1)
 
