@@ -164,7 +164,7 @@ def draw_poly_detections(img, detections, class_names, scale, threshold=0.2, put
     assert isinstance(class_names, (tuple, list))
     img = mmcv.imread(img)
     color_white = (255, 255, 255)
-    print(detections)
+    #print(detections)
     for j, name in enumerate(class_names):
         if colormap is None:
             color = (random.randint(0, 256), random.randint(0, 256), random.randint(0, 256))
