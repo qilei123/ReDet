@@ -10,9 +10,9 @@ def get_exec_out(sxcute_str):
 if __name__ == '__main__':
     excute_str = 'nvidia-smi'
     out_list = get_exec_out(excute_str)
-    print(out_list)
+    #print(out_list)
     for oo in out_list:
-        print(oo)
+        #print(oo)
         if oo.find('python') != -1:
             # split()函数默认可以按空格分割，并且把结果中的空字符串删除掉，留下有用信息
             proc_list = oo.split()
