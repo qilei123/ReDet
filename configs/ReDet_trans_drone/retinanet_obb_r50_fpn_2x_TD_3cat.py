@@ -56,7 +56,7 @@ test_cfg = dict(
     # max_per_img=1000)
     max_per_img = 2000)
 # dataset settings
-dataset_type = 'TransDroneDataset'
+dataset_type = 'TransDroneDataset3Cat'
 data_root = '/data2/qilei_chen/DATA/trans_drone/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
