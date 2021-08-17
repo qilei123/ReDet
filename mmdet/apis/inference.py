@@ -91,7 +91,7 @@ def _inference_single(model, img, img_transform, device):
     data = _prepare_data(img, img_transform, model.cfg, device)
     with torch.no_grad():
         result = model(return_loss=False, rescale=True, **data)
-        #print(result)
+        print(result)
     return result
 
 
