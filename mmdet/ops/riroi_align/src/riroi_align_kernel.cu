@@ -8,7 +8,7 @@
   for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < n; \
        i += blockDim.x * gridDim.x)
 
-#define THREADS_PER_BLOCK 1024
+#define THREADS_PER_BLOCK 512
 
 inline int GET_BLOCKS(const int N) {
     int optimal_block_num = (N + THREADS_PER_BLOCK - 1) / THREADS_PER_BLOCK;
