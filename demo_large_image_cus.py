@@ -121,7 +121,7 @@ class DetectorModel():
                 time0 = datetime.datetime.now()
                 #print(subimg)
                 chip_detections = inference_detector(self.model, subimg)
-                #print(chip_detections)
+                print(chip_detections)
                 time1 = datetime.datetime.now()
                 #print("--------inference_detector process--------")
                 #print((time1-time0).microseconds/1000)
