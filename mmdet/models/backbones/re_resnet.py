@@ -16,7 +16,7 @@ from ..builder import BACKBONES
 
 # Set default Orientation=8, .i.e, the group C8
 # One can change it by passing the env Orientation=xx
-Orientation = 8
+Orientation = 4
 # keep similar computation or similar params
 # One can change it by passing the env fixparams=True
 fixparams = False
