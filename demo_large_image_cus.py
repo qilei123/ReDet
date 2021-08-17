@@ -155,7 +155,7 @@ class DetectorModel():
     def inference_single_vis(self, srcpath, dstpath, frame_size, slide_size, chip_size, speed=False):
         srcpath = mmcv.imread(srcpath)
         #srcpath = mmcv.imrotate(srcpath, -90,auto_bound=True)
-        srcpath = cv2.resize(srcpath,(frame_size[1],frame_size[0]))
+        #srcpath = cv2.resize(srcpath,(frame_size[1],frame_size[0]))
         
         time0 = datetime.datetime.now()
         detections = self.inference_single(srcpath, slide_size, chip_size)
