@@ -37,7 +37,7 @@ class ReDet(BaseDetectorNew, RPNTestMixin):
                  train_cfg=None,
                  test_cfg=None,
                  pretrained=None):
-        assert backbone['type'] == 'ResNet', 'ReDet only supports ReResNet backbone'
+        assert backbone['type'] == 'ReResNet', 'ReDet only supports ReResNet backbone'
         assert neck['type'] == 'ReFPN', 'ReDet only supports ReFPN neck'
         assert bbox_roi_extractor is not None
         assert bbox_head is not None

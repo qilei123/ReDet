@@ -1,11 +1,11 @@
 # model settings
 model = dict(
     type='ReDet',
-    #pretrained='premodels/re_resnet50_c8_batch256-25b16846.pth',
-    pretrained='modelzoo://resnet50',
+    pretrained='premodels/re_resnet50_c8_batch256-25b16846.pth',
+    #pretrained='modelzoo://resnet50',
     backbone=dict(
-        #type='ReResNet',
-        type='ResNet',
+        type='ReResNet',
+        #type='ResNet',
         depth=50,
         num_stages=4,
         out_indices=(0, 1, 2, 3),
