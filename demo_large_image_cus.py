@@ -244,10 +244,10 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None):
         tmer.save_results(dst_dir+".pkl")
 def videos_process(src_dir,dst_dir):
     print("start initial detector")
-    model_name = "ReDet_re50_refpn_1x_TD_ms"
+    model_name = "ReDet_re50_refpn_1x_TD_ms_3cat"
     model = DetectorModel(
         r"configs/ReDet_trans_drone/"+model_name+".py",
-        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"_test/latest.pth")
+        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/latest.pth")
     print("end initial detector") 
 
     video_dir_list = glob.glob(os.path.join(src_dir,"*.MOV")) 
