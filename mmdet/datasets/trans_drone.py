@@ -5,6 +5,6 @@ class TransDroneDataset(CocoDataset):
 
     CLASSES = ('Small 1-piece vehicle','Large 1-piece vehicle','Extra-large 2-piece truck','Tractor','Trailer','Motorcycle')
 
-class TransDroneDataset3Cat(TransDroneDataset):
+class TransDroneDataset3Cat(CocoDataset):
 
     CLASSES = ('Small 1-piece vehicle','Large 1-piece vehicle','Extra-large 2-piece truck')
