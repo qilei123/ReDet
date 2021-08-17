@@ -62,7 +62,8 @@ def convnxn(inplanes, outplanes, kernel_size=3, stride=1, padding=0, groups=1, b
                       bias=bias,
                       dilation=dilation,
                       sigma=None,
-                      frequencies_cutoff=lambda r: 3 * r, )
+                      frequencies_cutoff=lambda r: 3 * r, 
+                      initialize = False)
 
 
 def ennReLU(inplanes, inplace=True):

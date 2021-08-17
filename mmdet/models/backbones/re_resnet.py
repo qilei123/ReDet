@@ -64,7 +64,8 @@ def conv7x7(inplanes, out_planes, stride=2, padding=3, bias=False):
                       padding=padding,
                       bias=bias,
                       sigma=None,
-                      frequencies_cutoff=lambda r: 3 * r, )
+                      frequencies_cutoff=lambda r: 3 * r, 
+                      initialize = False)
 
 
 def conv3x3(inplanes, out_planes, stride=1, padding=1, groups=1, dilation=1):
@@ -104,7 +105,8 @@ def convnxn(inplanes, outplanes, kernel_size=3, stride=1, padding=0, groups=1, b
                       bias=bias,
                       dilation=dilation,
                       sigma=None,
-                      frequencies_cutoff=lambda r: 3 * r, )
+                      frequencies_cutoff=lambda r: 3 * r, 
+                      initialize = False)
 
 
 def ennReLU(inplanes):
