@@ -197,7 +197,7 @@ log_config = dict(
 total_epochs = 24
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = data_root + 'work_dirs/ReDet_re50_refpn_1x_TD'
+work_dir = data_root + 'work_dirs/ReDet_re50_refpn_1x_TD_test'
 load_from = None
 resume_from = None#data_root + 'work_dirs/ReDet_re50_refpn_1x_TD/latest.pth' #None
 workflow = [('train', 1)]
