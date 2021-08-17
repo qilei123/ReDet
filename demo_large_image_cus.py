@@ -289,10 +289,10 @@ def show_gts():
             cv2.rectangle(img, (int(x), int(y)),
                         (int(x+w), int(y+h)), (0, 255, 0), 2)   
             bbox = list(map(int, ann['segmentation'][0])) 
-            print(bbox)
-            for i in range(3):
-                cv2.line(img, (bbox[i * 2], bbox[i * 2 + 1]), (bbox[(i+1) * 2], bbox[(i+1) * 2 + 1]), color=(0, 255, 0), thickness=2,lineType=cv2.LINE_AA)
-            cv2.line(img, (bbox[6], bbox[7]), (bbox[0], bbox[1]), color=(0, 255, 0), thickness=2,lineType=cv2.LINE_AA) 
+            if len(bbox)==8:
+                for i in range(3):
+                    cv2.line(img, (bbox[i * 2], bbox[i * 2 + 1]), (bbox[(i+1) * 2], bbox[(i+1) * 2 + 1]), color=(0, 255, 0), thickness=2,lineType=cv2.LINE_AA)
+                cv2.line(img, (bbox[6], bbox[7]), (bbox[0], bbox[1]), color=(0, 255, 0), thickness=2,lineType=cv2.LINE_AA) 
         cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/videos/results2/gts/"+img_file_name,img)       
 if __name__ == '__main__':
     #image_process()
