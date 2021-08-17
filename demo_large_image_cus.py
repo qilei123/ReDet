@@ -274,7 +274,7 @@ def show_pickle():
         print(pk)
 
 def show_gts():
-    anns_file = "/data2/qilei_chen/DATA/trans_drone/annotations/merged_annotations_train3.json"
+    anns_file = "/data2/qilei_chen/DATA/trans_drone/annotations/merged_annotations_val3.json"
     coco_instance = COCO(anns_file)
     coco_imgs = coco_instance.imgs
     for key in coco_imgs:
@@ -295,6 +295,6 @@ def show_gts():
         cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/videos/results2/gts/"+img_file_name,img)       
 if __name__ == '__main__':
     #image_process()
-    videos_process("/data2/qilei_chen/DATA/trans_drone/videos/rounds","/data2/qilei_chen/DATA/trans_drone/videos/results2")
+    #videos_process("/data2/qilei_chen/DATA/trans_drone/videos/rounds","/data2/qilei_chen/DATA/trans_drone/videos/results2")
     #show_pickle()
-    #show_gts()
+    show_gts()
