@@ -172,7 +172,7 @@ class DetectorModel():
             speeds = self.easySpeed(detections)
         return img,detections
     def easySpeed(self,detections):
-        print(detections)
+        #print(detections)
         if self.pre_detections is not None:
             pass
         
