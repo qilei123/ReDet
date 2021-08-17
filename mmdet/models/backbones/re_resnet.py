@@ -24,7 +24,7 @@ if 'Orientation' in os.environ:
     Orientation = int(os.environ['Orientation'])
 if 'fixparams' in os.environ:
     fixparams = True
-print('ReResNet Orientation: {}\tFix Params: {}'.format(Orientation, fixparams))
+#print('ReResNet Orientation: {}\tFix Params: {}'.format(Orientation, fixparams))
 
 # define the equivariant group. We use C8 group by default.
 gspace = gspaces.Rot2dOnR2(N=Orientation)
