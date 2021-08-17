@@ -247,7 +247,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None):
 def videos_process(src_dir,dst_dir):
     print("start initial detector")
     #model_name = "ReDet_re50_refpn_1x_TD_ms_3cat"
-    model_name = "retinanet_obb_r50_fpn_2x_TD_3cat_scratch"
+    model_name = "retinanet_obb_r50_fpn_2x_TD_3cat"
     model = DetectorModel(
         r"configs/ReDet_trans_drone/"+model_name+".py",
         r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/latest.pth")
