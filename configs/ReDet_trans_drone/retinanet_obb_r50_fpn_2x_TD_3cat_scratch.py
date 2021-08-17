@@ -7,7 +7,7 @@ model = dict(
         depth=50,
         num_stages=4,
         out_indices=(0, 1, 2, 3),
-        frozen_stages=1,
+        frozen_stages=-1,
         style='pytorch'),
     neck=dict(
         type='FPN',
@@ -121,7 +121,7 @@ total_epochs = 24
 #device_ids = range(8)
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = data_root + 'work_dirs/retinanet_obb_r50_fpn_2x_TD_3cat'
+work_dir = data_root + 'work_dirs/retinanet_obb_r50_fpn_2x_TD_3cat_stratch'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
