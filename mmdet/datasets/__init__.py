@@ -13,12 +13,13 @@ from .repeat_dataset import RepeatDataset
 from .utils import to_tensor, random_scale, show_ann, get_dataset
 from .voc import VOCDataset
 from .xml_style import XMLDataset
-
+from .trans_drone import TransDroneDataset,TransDroneDataset3Cat
 __all__ = [
     'CustomDataset', 'XMLDataset', 'CocoDataset', 'DOTADataset', 'DOTA2Dataset',
     'DOTA2Dataset_v2', 'DOTA2Dataset_v3', 'VOCDataset', 'GroupSampler',
     'DistributedGroupSampler', 'build_dataloader', 'to_tensor', 'random_scale',
     'show_ann', 'get_dataset', 'ConcatDataset', 'RepeatDataset',
     'ExtraAugmentation', 'HRSCL1Dataset', 'DOTADataset_v3',
-    'DOTA1_5Dataset', 'DOTA1_5Dataset_v3', 'DOTA1_5Dataset_v2', 'DOTA2Dataset_v4'
+    'DOTA1_5Dataset', 'DOTA1_5Dataset_v3', 'DOTA1_5Dataset_v2', 'DOTA2Dataset_v4',
+    'TransDroneDataset','TransDroneDataset3Cat'
 ]
