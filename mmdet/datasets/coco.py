@@ -115,4 +115,5 @@ class CocoDataset(CustomDataset):
             # poly format is not used in the current implementation
             ann['mask_polys'] = gt_mask_polys
             ann['poly_lens'] = gt_poly_lens
+        print(ann)
         return ann
