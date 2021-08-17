@@ -247,7 +247,7 @@ def videos_process(src_dir,dst_dir):
     model_name = "ReDet_re50_refpn_1x_TD_ms"
     model = DetectorModel(
         r"configs/ReDet_trans_drone/"+model_name+".py",
-        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/latest.pth")
+        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"_test/latest.pth")
     print("end initial detector") 
 
     video_dir_list = glob.glob(os.path.join(src_dir,"*.MOV")) 
