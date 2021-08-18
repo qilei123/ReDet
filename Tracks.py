@@ -2,6 +2,7 @@ import os
 from shapely.geometry import Polygon
 import cv2
 import pickle
+import json
 class track:
     def __init__(self):
         self.cat_id = -1
@@ -55,7 +56,7 @@ class tracks_manager:
             polygon.append((det_polygon[i*2],det_polygon[i*2+1]))
         return Polygon(polygon)
     def update(self,det_polygons,frame_id):
-        print(det_polygons)
+        
         for cat_id in self.cat_ids:
             for det_polygon in det_polygons:
                 if not det_polygon[-1]==cat_id:
@@ -142,7 +143,40 @@ class tracks_manager:
             cv2.putText(frame, str(round(avg_lonVelocity,2)), (int(track.xCenter),int(track.yCenter)), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 1, cv2.LINE_AA)    
         return frame
 
+    def track_class2dict(self,track):
+        track_dict=dict()
 
+        track_dict["cat_id"] = track.cat_id
+
+        track_dict["recordingId"] = track.recordingId
+        track_dict["trackId"] = track.trackId 
+        track_dict["frame"] = track.frame
+        track_dict["trackLifetime"] = track.trackLifetime
+        
+        track_dict["polygon"] = track.polygon
+        track_dict["xCenter"] = track.xCenter
+        track_dict["yCenter"] = track.yCenter 
+        track_dict["heading"] = track.heading 
+        track_dict["width"] = track.width
+        track_dict["length"] = track.length
+
+        track_dict["xVelocity"] = track.xVelocity
+        track_dict["yVelocity"] = track.yVelocity
+        track_dict["xAcceleration"] = track.xAcceleration 
+        track_dict["yAcceleration"] = track.yAcceleration 
+        
+        track_dict["lonVelocity"] = track.lonVelocity 
+        track_dict["latVelocity"] = track.latVelocity 
+        track_dict["lonAcceleration"] = track.lonAcceleration
+        track_dict["latAcceleration"] = track.latAcceleration        
+        return track_dict
     def save_results(self,dst_dir):
-        with open(dst_dir, 'wb') as handle:
-            pickle.dump(self.track_queue, handle)        
+        track_queue_json = dict()
+        for key in self.track_queue:
+            track_queue_json[key] = []
+            for track in self.track_queue[key]:
+                track_queue_json[key].append(self.track_class2dict(track))
+        #with open(dst_dir, 'wb') as handle:
+        #   pickle.dump(self.track_queue, handle)   
+        with open(dst_dir, 'w') as fp:
+            json.dump(track_queue_json, fp)     
