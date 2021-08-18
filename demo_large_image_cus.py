@@ -228,7 +228,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None):
     frame_index = 1
     while success:
         result_frame,detections = model.inference_single_vis(frame,"/data2/qilei_chen/DATA/trans_drone/videos/results2/test1.jpg",frame_size,frame_size,frame_size)
-        #print(detections)
+        print(detections)
         det_polygons = filt_detections(detections,model.classnames,cat_ids=[1,2,3]) 
         
         tmer.update(det_polygons,frame_index)
