@@ -239,8 +239,8 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None):
         cap2.write(result_frame)
         #print(frame_index)
         frame_index+=1
-        if frame_index==20:
-            break
+        #if frame_index==20:
+        #    break
         success,frame = cap1.read()
     if isinstance( dst_dir,str):
         tmer.save_results(dst_dir+".json")
@@ -266,7 +266,7 @@ def videos_process(src_dir,dst_dir):
         if True:
             dst_writer = cv2.VideoWriter(dst_dir_name, cv2.VideoWriter_fourcc("P", "I", "M", "1"), fps, (frame_size[1],frame_size[0]))
             single_video_process(model,src_cap,dst_writer,frame_size,dst_dir_name)
-        break
+        #break
 
 def show_pickle():
     dst_dir = "/data2/qilei_chen/DATA/trans_drone/videos/results1/DJI_0003 400 90 degree.avi.pkl"
