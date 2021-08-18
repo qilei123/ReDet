@@ -181,9 +181,9 @@ class DetectorModel():
 
 def filt_detections(detections, class_names, scale=1, threshold=0.2,cat_ids = [6]):
     polygons = []
-    for j, name in enumerate(classnames_):
+    for j, name in enumerate(class_names):
         if j in cat_ids:
-            dets = detections[j]
+            dets = detections[j-1]
             
             for det in dets:
                 bbox = det[:8] * scale
