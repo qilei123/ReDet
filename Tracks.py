@@ -55,6 +55,7 @@ class tracks_manager:
             polygon.append((det_polygon[i*2],det_polygon[i*2+1]))
         return Polygon(polygon)
     def update(self,det_polygons,frame_id):
+        print(det_polygons)
         for cat_id in self.cat_ids:
             for det_polygon in det_polygons:
                 if not det_polygon[-1]==cat_id:
