@@ -160,8 +160,8 @@ class DetectorModel():
         time0 = datetime.datetime.now()
         detections = self.inference_single(srcpath, slide_size, chip_size)
         time1 = datetime.datetime.now()
-        print("--------inference_single process--------")
-        print((time1-time0).microseconds/1000)
+        #print("--------inference_single process--------")
+        #print((time1-time0).microseconds/1000)
         #img = srcpath
         img = draw_poly_detections(srcpath, detections, self.classnames, scale=1, threshold=0.2,
                                    colormap=dota15_colormap)
@@ -221,8 +221,6 @@ def image_process():
             model.inference_single_vis(img_path, out_path, (540, 960),(540, 960), (540, 960))
 
 def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,realscale=0.1):
-    
-
     tmer = tracks_manager()
     tmer.scale_map = realscale
     success,frame = cap1.read()
@@ -236,7 +234,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,reals
 
         result_frame = tmer.vis(result_frame)
 
-        #cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/videos/results2/test.jpg",result_frame)
+        cv2.imwrite("/data2/qilei_chen/DATA/usf_drone/processed_videos/test.jpg",result_frame)
         if cap2!=None:
             cap2.write(result_frame)
         #print(frame_index)
@@ -246,7 +244,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,reals
         success,frame = cap1.read()
     if isinstance( dst_dir,str):
         tmer.save_results(dst_dir+".json")
-def videos_process(src_dir,dst_dir):
+def videos_process(src_dir,dst_dir,suffix = "MOV"):
     print("start initial detector")
     #model_name = "ReDet_re50_refpn_1x_TD_ms_3cat"
     model_name = "retinanet_obb_r50_fpn_2x_TD_3cat_scratch"
@@ -255,7 +253,7 @@ def videos_process(src_dir,dst_dir):
         r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/latest.pth")
     print("end initial detector") 
 
-    video_dir_list = glob.glob(os.path.join(src_dir,"*.MOV")) 
+    video_dir_list = glob.glob(os.path.join(src_dir,"*."+suffix)) 
     realscales = [0.057,0.066,0.077,0.088]
     for src_dir,realscale in zip(video_dir_list,realscales):
         print(src_dir)
@@ -267,7 +265,7 @@ def videos_process(src_dir,dst_dir):
         model.pre_detections = None
         #if not os.path.exists(dst_dir_name):
         if True:
-            dst_writer =None# cv2.VideoWriter(dst_dir_name, cv2.VideoWriter_fourcc("P", "I", "M", "1"), fps, (frame_size[1],frame_size[0]))
+            dst_writer = cv2.VideoWriter(dst_dir_name, cv2.VideoWriter_fourcc("P", "I", "M", "1"), fps, (frame_size[1],frame_size[0]))
             single_video_process(model,src_cap,dst_writer,frame_size,dst_dir_name,realscale=realscale)
         #break
 
@@ -301,6 +299,7 @@ def show_gts():
 
 if __name__ == '__main__':
     #image_process()
-    videos_process("/data2/qilei_chen/DATA/trans_drone/videos/rounds","/data2/qilei_chen/DATA/trans_drone/videos/results2")
+    #videos_process("/data2/qilei_chen/DATA/trans_drone/videos/rounds","/data2/qilei_chen/DATA/trans_drone/videos/results2")
+    videos_process("/data2/qilei_chen/DATA/usf_drone/Drone Videos","/data2/qilei_chen/DATA/usf_drone/processed_videos","mp4")
     #show_pickle()
     #show_gts()
