@@ -160,8 +160,8 @@ class DetectorModel():
         time0 = datetime.datetime.now()
         detections = self.inference_single(srcpath, slide_size, chip_size)
         time1 = datetime.datetime.now()
-        #print("--------inference_single process--------")
-        #print((time1-time0).microseconds/1000)
+        print("--------inference_single process--------")
+        print((time1-time0).microseconds/1000)
         #img = srcpath
         img = draw_poly_detections(srcpath, detections, self.classnames, scale=1, threshold=0.2,
                                    colormap=dota15_colormap)
@@ -237,7 +237,8 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,reals
         result_frame = tmer.vis(result_frame)
 
         #cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/videos/results2/test.jpg",result_frame)
-        cap2.write(result_frame)
+        if cap2!=None:
+            cap2.write(result_frame)
         #print(frame_index)
         frame_index+=1
         #if frame_index==20:
@@ -266,7 +267,7 @@ def videos_process(src_dir,dst_dir):
         model.pre_detections = None
         #if not os.path.exists(dst_dir_name):
         if True:
-            dst_writer = cv2.VideoWriter(dst_dir_name, cv2.VideoWriter_fourcc("P", "I", "M", "1"), fps, (frame_size[1],frame_size[0]))
+            dst_writer =None# cv2.VideoWriter(dst_dir_name, cv2.VideoWriter_fourcc("P", "I", "M", "1"), fps, (frame_size[1],frame_size[0]))
             single_video_process(model,src_cap,dst_writer,frame_size,dst_dir_name,realscale=realscale)
         #break
 
