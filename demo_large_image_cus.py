@@ -234,7 +234,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,reals
 
         result_frame = tmer.vis(result_frame)
 
-        cv2.imwrite("/data2/qilei_chen/DATA/usf_drone/processed_videos/test.jpg",result_frame)
+        #cv2.imwrite("/data2/qilei_chen/DATA/usf_drone/processed_videos/test.jpg",result_frame)
         if cap2!=None:
             cap2.write(result_frame)
         #print(frame_index)
@@ -254,7 +254,8 @@ def videos_process(src_dir,dst_dir,suffix = "MOV"):
     print("end initial detector") 
 
     video_dir_list = glob.glob(os.path.join(src_dir,"*."+suffix)) 
-    realscales = [0.057,0.066,0.077,0.088]
+    #realscales = [0.057,0.066,0.077,0.088]
+    realscales = [0.1,0.1,0.1,0.1]
     for src_dir,realscale in zip(video_dir_list,realscales):
         print(src_dir)
         src_cap = cv2.VideoCapture(src_dir)
