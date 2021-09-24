@@ -163,7 +163,7 @@ class DetectorModel():
         #print("--------inference_single process--------")
         #print((time1-time0).microseconds/1000)
         #img = srcpath
-        img = draw_poly_detections(srcpath, detections, self.classnames, scale=1, threshold=0.2,
+        img = draw_poly_detections(srcpath, detections, self.classnames, scale=1, threshold=0.5,
                                    colormap=dota15_colormap)
         if not dstpath==None:
             cv2.imwrite(dstpath, img)
@@ -179,7 +179,7 @@ class DetectorModel():
         self.pre_detections = detections
         return None
 
-def filt_detections(detections, class_names, scale=1, threshold=0.2,cat_ids = [6]):
+def filt_detections(detections, class_names, scale=1, threshold=0.5,cat_ids = [6]):
     polygons = []
     for j, name in enumerate(class_names):
         if j in cat_ids:
@@ -251,7 +251,7 @@ def videos_process(src_dir,dst_dir,model_name = "retinanet_obb_r50_fpn_2x_TD_3ca
     print(model_name)
     model = DetectorModel(
         r"configs/ReDet_trans_drone/"+model_name+".py",
-        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/epoch_12.pth")
+        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/epoch_15.pth")
     print("end initial detector") 
 
     video_dir_list = glob.glob(os.path.join(src_dir,"*."+suffix)) 
@@ -303,6 +303,8 @@ if __name__ == '__main__':
     #image_process()
     #videos_process("/data2/qilei_chen/DATA/trans_drone/videos/rounds","/data2/qilei_chen/DATA/trans_drone/videos/results2")
     #videos_process("/data2/qilei_chen/DATA/usf_drone/Drone Videos","/data2/qilei_chen/DATA/usf_drone/processed_videos","mp4")
+    videos_process("/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds","/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds_result","retinanet_obb_r50_fpn_2x_TD_3cat_wide")
+    videos_process("/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds","/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds_result","retinanet_obb_r50_fpn_2x_TD_3cat_mix")
     videos_process("/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds","/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds_result","retinanet_obb_r50_fpn_2x_TD_3cat_mix")
     #show_pickle()
     #show_gts()
