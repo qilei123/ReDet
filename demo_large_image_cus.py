@@ -234,7 +234,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,reals
 
         result_frame = tmer.vis(result_frame)
 
-        cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/test.jpg",result_frame)
+        cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/videos/test.jpg",result_frame)
         if cap2!=None:
             cap2.write(result_frame)
         #print(frame_index)
