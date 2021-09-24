@@ -234,7 +234,7 @@ def single_video_process(model,cap1,cap2,frame_size=(540,960),dst_dir=None,reals
 
         result_frame = tmer.vis(result_frame)
 
-        cv2.imwrite("/data2/qilei_chen/DATA/usf_drone/processed_videos/test.jpg",result_frame)
+        cv2.imwrite("/data2/qilei_chen/DATA/trans_drone/test.jpg",result_frame)
         if cap2!=None:
             cap2.write(result_frame)
         #print(frame_index)
@@ -251,7 +251,7 @@ def videos_process(src_dir,dst_dir,model_name = "retinanet_obb_r50_fpn_2x_TD_3ca
     print(model_name)
     model = DetectorModel(
         r"configs/ReDet_trans_drone/"+model_name+".py",
-        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/latest.pth")
+        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/epoch_12.pth")
     print("end initial detector") 
 
     video_dir_list = glob.glob(os.path.join(src_dir,"*."+suffix)) 
