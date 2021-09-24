@@ -303,6 +303,6 @@ if __name__ == '__main__':
     #image_process()
     #videos_process("/data2/qilei_chen/DATA/trans_drone/videos/rounds","/data2/qilei_chen/DATA/trans_drone/videos/results2")
     #videos_process("/data2/qilei_chen/DATA/usf_drone/Drone Videos","/data2/qilei_chen/DATA/usf_drone/processed_videos","mp4")
-    videos_process("/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds","/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds_result","retinanet_obb_r50_fpn_2x_TD_3cat_wide")
+    videos_process("/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds","/data2/qilei_chen/DATA/trans_drone/videos/whole_rounds_result","retinanet_obb_r50_fpn_2x_TD_3cat_mix")
     #show_pickle()
     #show_gts()
