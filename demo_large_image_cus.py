@@ -251,7 +251,7 @@ def videos_process(src_dir,dst_dir,model_name = "retinanet_obb_r50_fpn_2x_TD_3ca
     print(model_name)
     model = DetectorModel(
         r"configs/ReDet_trans_drone/"+model_name+".py",
-        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/epoch_9.pth")
+        r"/data2/qilei_chen/DATA/trans_drone/work_dirs/"+model_name+"/epoch_14.pth")
     print("end initial detector") 
 
     video_dir_list = glob.glob(os.path.join(src_dir,"*."+suffix)) 
